@@ -24,7 +24,7 @@ matrix_t copy_grid(matrix_t original_grid)
     return copy;
 }
 
-void _check_grid(matrix_t original, matrix_t copy, vector_t word, int index, int i, int j, bool *found_word)
+void _check_grid(matrix_t copy, vector_t word, int index, int i, int j, bool *found_word)
 {
     char c;
     if (index < k && i >= 0 && i < n && j >= 0 && j < m) c = word[index];
@@ -45,10 +45,10 @@ void _check_grid(matrix_t original, matrix_t copy, vector_t word, int index, int
     {
         copy[i][j] = '.';
         
-        _check_grid(original, copy_grid(copy), word, index + 1, i - 1, j, found_word); // Cima (i - 1, j)
-        _check_grid(original, copy_grid(copy), word, index + 1, i + 1, j, found_word); // Baixo (i + 1, j)
-        _check_grid(original, copy_grid(copy), word, index + 1, i, j - 1, found_word); // Esquerda (i, j - 1)
-        _check_grid(original, copy_grid(copy), word, index + 1, i, j + 1, found_word); // Direita (i, j + 1)
+        _check_grid(copy_grid(copy), word, index + 1, i - 1, j, found_word); // Cima (i - 1, j)
+        _check_grid(copy_grid(copy), word, index + 1, i + 1, j, found_word); // Baixo (i + 1, j)
+        _check_grid(copy_grid(copy), word, index + 1, i, j - 1, found_word); // Esquerda (i, j - 1)
+        _check_grid(copy_grid(copy), word, index + 1, i, j + 1, found_word); // Direita (i, j + 1)
     }
 }
 
@@ -57,7 +57,7 @@ void check_grid(matrix_t original, vector_t word, bool *found_word)
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
-            _check_grid(original, copy_grid(original), word, 0, i, j, found_word);
+            _check_grid(copy_grid(original), word, 0, i, j, found_word);
     }
 }
 
