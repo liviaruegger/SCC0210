@@ -1,13 +1,3 @@
-/**
- * @file   E01.cpp
- * @author Ana Lívia Ruegger Saldanha (N.USP 8586691)
- * @brief  SCC0210 - Laboratório de Algoritmos Avançados I
- *         Exercício 01: Aquecendo os motores
- *         
- * @date   2022-03-22
- * 
- */
-
 #include <iostream>
 #include <string>
 #include <map>
