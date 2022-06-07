@@ -1,9 +1,9 @@
 #include <iostream>
 
-using namespace std;
-
 #define MAX_N 2000
 #define MAX_M 2000
+
+using namespace std;
 
 int n, m;
 int price[26];
