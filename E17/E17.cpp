@@ -1,60 +1,51 @@
 #include <iostream>
-#include <algorithm>
 
 using namespace std;
 
+#define MAX_N 2000
+#define MAX_M 2000
+
+int n, m;
 int price[26];
+string str1, str2;
 
-int lcs_value(int i, string str1, string str2, int n, int m)
+int values[MAX_N][MAX_M];
+
+int most_expensive_subseq(int i, int j)
 {
-    string lcs;
+    // Caso base: chegou ao fim de uma das strings
+    if (i >= n || j >= m) return 0;
 
-    int j = 0;
-    int checkpoint;
-    for (; i < n; i++)
-    {
-        while (j < m)
-        {
-            if (str1[i] == str2[j])
-            {
-                lcs.push_back(str1[i]);
-                checkpoint = j;
-                i++;
-            }
+    // Caso base: valor já foi calculado
+    if (values[i][j] != -1) return values[i][j];
 
-            j++;
-        }        
+    int value;
+    if (str1[i] == str2[j])
+        value = price[str1[i] - 97] + most_expensive_subseq(i + 1, j + 1);
+    else
+        value = max(most_expensive_subseq(i, j + 1), most_expensive_subseq(i + 1, j));
 
-        j = checkpoint;
-    }
-    
-    int value = 0;
-    for (char& c : lcs)
-        value += price[c - 97];
+    // Terminou a recursão -> registra o valor calculado
+    values[i][j] = value;
 
     return value;
 }
 
 int main()
 {
-    int n, m;
     cin >> n >> m;
 
     for (int i = 0; i < 26; i++)
         cin >> price[i];
 
-    string str1, str2;
     cin >> str1 >> str2;
 
-    int max_value1[n];
-    for (int i = 0; i < n; i++)
-        max_value1[i] = lcs_value(i, str1, str2, n, m);
+    // Inicializa a matriz que guardará os valores já calculados
+    for (int i = 0; i < MAX_N; i++)
+        for (int j = 0; j < MAX_M; j++)
+            values[i][j] = -1;
 
-    // int max_value2[m];
-    // for (int i = 0; i < m; i++)
-    //     max_value1[i] = lcs_value(i, str2, str1, m, n);
-
-    cout << *max_element(max_value1, max_value1 + n);
+    cout << most_expensive_subseq(0, 0);
 
     return 0;
 }
