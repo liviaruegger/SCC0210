@@ -9,4 +9,5 @@ Programming exercises solved at the Advanced Algorithms Laboratory I ([SCC0210](
 - Divide-and-Conquer Algorithms ([E11](/E11/), [E12](/E12/))
 - Dynamic Programming ([E13](/E13/), [E14](/E14/), [E15](/E15/), [E16](/E16/), [E17](/E17/), [E18](/E18/))
 - Number theory ([E19](/E19/), [E20](/E20/), [E21](/E21/), [E22](/E22/))
-- Knuth-Morris-Pratt Algorithm ([E23](/E23/), [E24](/E24))
+- Knuth-Morris-Pratt Algorithm ([E23](/E23/), [E24](/E24/))
+- Trie ([E25](/E25/), [E26](/E26/))
