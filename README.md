@@ -11,3 +11,4 @@ Programming exercises solved at the Advanced Algorithms Laboratory I ([SCC0210](
 - Number theory ([E19](/E19/), [E20](/E20/), [E21](/E21/), [E22](/E22/))
 - Knuth-Morris-Pratt Algorithm ([E23](/E23/), [E24](/E24/))
 - Trie ([E25](/E25/), [E26](/E26/))
+- Game theory ([E27](/E27/), [E28](/E28/))
