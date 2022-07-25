@@ -35,5 +35,7 @@ int main()
         cin >> vertices[i].y;
     }
 
-    cout << area_times_2(vertices, n_vertices) << endl;   
+    cout << area_times_2(vertices, n_vertices) << endl;
+
+    return 0;
 }
